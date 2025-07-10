@@ -1,5 +1,5 @@
 console.log("Current path:", window.location.pathname);
-fetch("fighter_stats.json")
+fetch("./fighter_stats.json")
   .then(res => {
     console.log("Fetch status for fighter_stats.json:", res.status);
     return res.json();
