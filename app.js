@@ -1,3 +1,12 @@
+console.log("Current path:", window.location.pathname);
+fetch("fighter_stats.json")
+  .then(res => {
+    console.log("Fetch status for fighter_stats.json:", res.status);
+    return res.json();
+  })
+  .then(data => console.log("Loaded JSON length:", data.length))
+  .catch(err => console.error("Fetch error:", err));
+
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname.toLowerCase();
 
