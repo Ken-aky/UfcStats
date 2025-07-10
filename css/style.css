@@ -129,7 +129,7 @@ body {
 }
 
 @media (max-width: 500px) {
-  .search-box {
+  #search-input {
     width: 70vw;
   }
 
