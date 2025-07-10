@@ -9,20 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let fighterNames = [];
 
-    // Kämpfernamen für Autovervollständigung laden
+    // Autovervollständigungsliste laden
     fetch("fighter_stats.json")
       .then(res => res.json())
       .then(data => {
         fighterNames = data.map(f => `${f.first_name} ${f.last_name}`);
       });
 
-    // Suche ausführen
     if (searchBtn && searchInput) {
       searchBtn.addEventListener("click", () => {
         const name = searchInput.value.trim();
         if (name) {
-          const encoded = encodeURIComponent(name);
-          window.location.href = `FighterProfile.html?name=${encoded}`;
+          localStorage.setItem("selectedFighter", name);
+          window.location.href = "FighterProfile.html";
         }
       });
 
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.key === "Enter") searchBtn.click();
       });
 
-      // Autovervollständigung
+      // Vorschläge anzeigen
       searchInput.addEventListener("input", () => {
         const input = searchInput.value.toLowerCase();
         suggestions.innerHTML = "";
@@ -52,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      // Klick außerhalb → Vorschläge ausblenden
       document.addEventListener("click", (e) => {
         if (!e.target.closest(".search-box")) {
           suggestions.innerHTML = "";
@@ -62,16 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // === PROFILSEITE ===
-  if (path.includes("fighterprofile.html")) {
-    const params = new URLSearchParams(window.location.search);
-    const nameParam = params.get("name")?.toLowerCase();
+  if (path.toLowerCase().includes("fighterprofile.html")) {
+    const name = localStorage.getItem("selectedFighter")?.toLowerCase();
 
     fetch("fighter_stats.json")
       .then(res => res.json())
       .then(data => {
         const fighter = data.find(f => {
           const fullName = `${f.first_name} ${f.last_name}`.toLowerCase();
-          return fullName === nameParam;
+          return fullName === name;
         });
 
         if (!fighter) {
@@ -79,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        // DOM befüllen
         document.getElementById("fighter-name").textContent = `${fighter.first_name} ${fighter.last_name}`;
         document.getElementById("fighter-nickname").textContent = fighter.nickname ? `"${fighter.nickname}"` : "";
         document.getElementById("fighter-division").textContent = fighter.weight_class || "";
@@ -96,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("fighter-image").src = fighter.image_url;
       })
       .catch(error => {
-        console.error("Fehler beim Laden der Daten:", error);
+        console.error("Error loading fighter data:", error);
       });
   }
 });
