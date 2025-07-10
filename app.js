@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const name = searchInput.value.trim();
       if (name) {
         localStorage.setItem("selectedFighter", name);
-        window.location.href = "FighterProfile.html";
+        window.location.href = "./FighterProfile.html";
       }
     });
 
