@@ -127,3 +127,15 @@ body {
   background-color: #d80404;   /* z. B. UFC-Rot beim Hover */
   color: white;
 }
+
+@media (max-width: 500px) {
+  .search-box {
+    width: 70vw;
+  }
+
+  .search-box input,
+  .search-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}

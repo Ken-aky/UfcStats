@@ -173,14 +173,4 @@ body {
   .stat-box {
     padding: 12px;
   }
-
-  .search-box {
-    width: 70vw;
-  }
-
-  .search-box input,
-  .search-btn {
-    font-size: 12px;
-    padding: 8px 12px;
-  }
 }
