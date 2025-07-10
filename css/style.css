@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2b2b2b;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.search-box {
+  margin-bottom:250px;
+}
+
+.search-box input {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #d80404;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid #d80404;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-btn:hover {
+    background-color: #d80404;
+}
+
+.logo {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #d80404;
+}
+
+.subtitle {
+  color: #d80404;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.logoIMG {
+    width: 300px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  width: 400px; /* Gesamtbreite */
+}
+
+.search-box input {
+  flex: 1; /* Nimmt den verbleibenden Platz ein */
+  padding: 10px 15px;
+  border-radius: 10px 0 0 10px;
+  border: 2px solid #d80404;
+  border-right: none;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-btn {
+  padding: 10px 15px;
+  border-radius: 0 10px 10px 0;
+  border: 2px solid #d80404;
+  border-left: none;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+  height: 44px;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #d80404;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #1e1e1e;
+  color: white;
+  list-style: none;
+  padding: 0;
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 4px;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.suggestions-list li {
+  margin: 10px 0;
+  cursor: pointer; 
+  transition: background-color 0.2s ease;
+  padding: 10px 12px;
+}
+
+.suggestions-list li:hover {
+  background-color: #d80404;   /* z. B. UFC-Rot beim Hover */
+  color: white;
+}

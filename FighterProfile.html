@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fighter Profile</title>
+  <link rel="stylesheet" href="./css/fighterProfile.css" />
+</head>
+<body>
+  <button class="back-button" onclick="window.location.href = 'index.html'">Go back</button>
+
+  <div class="container-whole">
+    <div class="fighter-image">
+      <img id="fighter-image" src="assets/Pantoja.avif" alt="Fighter Image" />
+    </div>
+
+    <div class="container">
+      <div class="fighter-info">
+        <p class="nickname" id="fighter-nickname"></p>
+        <h1 class="name" id="fighter-name"></h1>
+        <p class="division" id="fighter-division"></p>
+        <p class="record" id="fighter-record"></p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-top">
+            <p class="stat-number" id="wins-knockout"></p>
+            <p class="stat-label">WINS BY<br>KNOCKOUT</p>
+          </div>
+          <p class="stat-loss"><span id="loss-knockout"></span></p>
+        </div>
+
+
+        <div class="stat-box">
+          <div class="stat-top">
+            <p class="stat-number" id="wins-submission"></p>
+            <p class="stat-label">WINS BY<br>SUBMISSION</p>
+          </div>
+          <p class="stat-loss"><span id="loss-submission"></span></p>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-top">
+            <p class="stat-number" id="wins-decision"></p>
+            <p class="stat-label">WINS BY<br>DECISION</p>
+          </div>
+          <p class="stat-loss"><span id="loss-decision"></span></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
