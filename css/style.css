@@ -63,7 +63,11 @@ body {
 .search-box {
   position: relative;
   display: flex;
-  width: 400px; /* Gesamtbreite */
+  width: 100%;
+  max-width: 400px; /* max auf großen Geräten */
+  margin-bottom: 250px;
+  padding: 0 10px; /* Abstand zu Bildschirmrand */
+  box-sizing: border-box;
 }
 
 .search-box input {
@@ -129,8 +133,9 @@ body {
 }
 
 @media (max-width: 500px) {
-  #search-input {
-    width: 70vw;
+  .search-box {
+    padding: 0 10px;
+    max-width: 100%;
   }
 
   .search-box input,
